@@ -4,6 +4,9 @@ This library is a LibGDX wrapper around the QR generation functionality of the Z
 
 The library uses zxing to generate a QR code bit matrix then uses https://github.com/earlygrey/shapedrawer based to render the QR code to a framebuffer. Finally, the texture is extracted from the frame buffer and returned.
 
+# Examples
+![Example](https://github.com/zeroed-tech/libgdx-zxing/raw/master/Example.png)
+
 # Setup
 Nothing special here, just import from Jitpack:
 ```groovy
@@ -55,9 +58,42 @@ generator.setEyeInnerShape(QRGenerator.Shape.CIRCLE)
 
 // Set the blocks shape (CIRCLE or SQUARE)
 generator.setInnerShape(QRGenerator.Shape.SQUARE)
+```
+
+Generate your QR code
+```java
 
 // Generate your QR code
 TextureRegion code = generator.generate("Zeroed.tech")
 
 // Do things with your code, don't forget to dispose of it when you're done
+```
+
+## Some example setups
+```java
+String input = "Zeroed.tech"
+ // Generate a basic QR code
+new QRGenerator(12).generate(input)
+
+// Generate a QR code with arcs on the eye borders
+new QRGenerator(12).setEyeBorderShape(QRGenerator.Shape.ARC).generate(input)
+
+// Generate a QR code with arcs on the eye borders and circular inner bits
+new QRGenerator(12).setEyeBorderShape(QRGenerator.Shape.ARC).setEyeInnerShape(QRGenerator.Shape.CIRCLE).generate(input)
+
+// Generate a QR code with arcs on the eye borders and circular everything else
+new QRGenerator(12).setEyeBorderShape(QRGenerator.Shape.ARC).setEyeInnerShape(QRGenerator.Shape.CIRCLE).setInnerShape(QRGenerator.Shape.CIRCLE).generate(input)
+
+// Generate a QR code where everything is a circle
+new QRGenerator(12).setEyeBorderShape(QRGenerator.Shape.CIRCLE).setEyeInnerShape(QRGenerator.Shape.CIRCLE).setInnerShape(QRGenerator.Shape.CIRCLE).generate(input)
+
+// Change up the colors
+new QRGenerator(12).primaryColor(Color.WHITE).secondaryColor(Color.BLACK).generate(input)
+new QRGenerator(12).primaryColor(Color.GREEN).secondaryColor(Color.BLACK).generate(input)
+
+// Generate a QR code with a larger border
+new QRGenerator(12).borderSize(3).generate(input)
+
+// Generate a larger QR code
+new QRGenerator(20).generate(input)
 ```
