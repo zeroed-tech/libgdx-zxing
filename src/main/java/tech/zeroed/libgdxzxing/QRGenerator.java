@@ -2,12 +2,9 @@ package tech.zeroed.libgdxzxing;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.*;
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.FrameBuffer;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.MathUtils;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
@@ -16,7 +13,7 @@ import com.google.zxing.qrcode.QRCodeWriter;
 import space.earlygrey.shapedrawer.ShapeDrawer;
 
 public class QRGenerator {
-    enum Shape {
+    public enum Shape {
         CIRCLE,
         SQUARE,
         ARC
