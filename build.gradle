@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+allprojects {
+    group 'tech.zeroed'
+    version '0.1-SNAPSHOT'
+
+    ext {
+        gdxVersion = '1.9.10'
+        shapedrawerVersion = '2.3.0'
+    }
+
+    repositories {
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+dependencies {
+    implementation 'com.google.zxing:core:3.3.0'
+    implementation "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
+    implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+    implementation "space.earlygrey:shapedrawer:$shapedrawerVersion"
+}
