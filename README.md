@@ -1,3 +1,5 @@
+This library has been replacced by https://github.com/zeroed-tech/LibGDX-QR
+
 # Libgdx-ZXing
 
 This library is a LibGDX wrapper around the QR generation functionality of the Zebra Crossing Barcode library https://github.com/zxing/zxing.
